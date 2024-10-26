@@ -1,7 +1,7 @@
 import os
 import sys
 
-import numpy np
+import numpy as np
 import pandas as pd
 
 from src.exception import CustomException
