@@ -23,11 +23,13 @@ class DataIngestion:
     def initiate_data_ingestion(self): # Si base de donnée ici vient la connexion à la bse
         logging.info("Enter the data ingestion method")
         try:
-            df=pd.read_csv('notebook\data\stud.csv')
-            logging.info('Read dataset as DataFrame')
             
+            logging.info('Read dataset as DataFrame')
+            df=pd.read_csv('notebook\data\stud.csv')
+                        
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path),exist_ok=True)
             
+            # Backup of the data file to the raw directory sin index number with column header
             df.to_csv(self.ingestion_config.raw_data_path,index=False,header=True)
             
             logging.info('Train test split initiated')
